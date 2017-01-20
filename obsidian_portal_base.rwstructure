@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<export format_version="2" game_system_id="3" source_scope_uuid="5764227B-91C6-5D3A-00D0-6A935B3A6BA9" owner_uuid="02000000-6350-D70E-0606-000000000000" export_date="2017-01-18T14:55:57Z" is_structure_only="true" xmlns="urn:lonewolfdevel.com:realm-works-export">
+	<definition>
+		<details name="obsidian_portal_structure" import_tag_id="Tag_1" original_uuid="578092B6-FE6C-A317-A7EF-6B935B3A6BA9" />
+		<content_summary max_domain_count="1" max_category_count="5" />
+	</definition>
+	<structure>
+		<domain_global domain_id="Domain_67" name="Import" global_uuid="0008287B-91C6-5D3A-00D0-6A935C3C6BA9">
+			<tag tag_id="Tag_1" name="obsidian_portal" abbrev="obsidport" match_priority="Normal" original_uuid="568092B6-FE6C-A317-A7EF-6B935B3A6BA9" signature="622704" />
+		</domain_global>
+		<category category_id="Category_1" name="Obsidian Portal Adventure Log" abbrev="Obsidian P" role="Topic" family_id="7" asset_name="Open Book" asset_uuid="B600287B-91C6-5D3A-00D0-6A935C3C6BA9" original_uuid="5A8092B6-FE6C-A317-A7EF-6B935B3A6BA9" signature="623677">
+			<description />
+			<summary />
+			<partition partition_id="Partition_1" name="Overview" original_uuid="5B8092B6-FE6C-A317-A7EF-6B935B3A6BA9" signature="622706">
+				<description />
+				<purpose />
+			</partition>
+			<partition partition_id="Partition_2" name="Public" original_uuid="5C8092B6-FE6C-A317-A7EF-6B935B3A6BA9" signature="622707">
+				<description />
+				<purpose />
+			</partition>
+			<partition partition_id="Partition_3" name="GM Only" original_uuid="5D8092B6-FE6C-A317-A7EF-6B935B3A6BA9" signature="622708">
+				<description />
+				<purpose />
+			</partition>
+		</category>
+		<category category_id="Category_2" name="Obsidian Portal Character" abbrev="Obsidian P" role="Topic" family_id="1" asset_name="Individual" asset_uuid="F7AD297B-91C6-5D3A-00D0-6A935D3C6BA9" original_uuid="5E8092B6-FE6C-A317-A7EF-6B935B3A6BA9" signature="625415">
+			<description />
+			<summary />
+			<partition partition_id="Partition_4" name="Overview" original_uuid="5F8092B6-FE6C-A317-A7EF-6B935B3A6BA9" signature="622710">
+				<description />
+				<purpose />
+			</partition>
+			<partition partition_id="Partition_5" name="Public" original_uuid="608092B6-FE6C-A317-A7EF-6B935B3A6BA9" signature="622711">
+				<description />
+				<purpose />
+			</partition>
+			<partition partition_id="Partition_6" name="GM Only" original_uuid="618092B6-FE6C-A317-A7EF-6B935B3A6BA9" signature="622712">
+				<description />
+				<purpose />
+			</partition>
+		</category>
+		<category category_id="Category_3" name="Obsidian Portal Item" abbrev="Obsidian P" role="Topic" family_id="4" asset_name="Named Object" asset_uuid="FAAD297B-91C6-5D3A-00D0-6A935D3C6BA9" original_uuid="648092B6-FE6C-A317-A7EF-6B935B3A6BA9" signature="625416">
+			<description />
+			<summary />
+			<partition partition_id="Partition_7" name="Overview" original_uuid="658092B6-FE6C-A317-A7EF-6B935B3A6BA9" signature="622716">
+				<description />
+				<purpose />
+			</partition>
+			<partition partition_id="Partition_8" name="Public" original_uuid="668092B6-FE6C-A317-A7EF-6B935B3A6BA9" signature="622717">
+				<description />
+				<purpose />
+			</partition>
+			<partition partition_id="Partition_9" name="GM only" original_uuid="678092B6-FE6C-A317-A7EF-6B935B3A6BA9" signature="622718">
+				<description />
+				<purpose />
+			</partition>
+		</category>
+		<category category_id="Category_4" name="Obsidian Portal Forum Thread" abbrev="Obsidian P" role="Topic" family_id="7" asset_name="Further Information" asset_uuid="4701287B-91C6-5D3A-00D0-6A935C3C6BA9" original_uuid="688092B6-FE6C-A317-A7EF-6B935B3A6BA9" signature="623680">
+			<description />
+			<summary />
+			<partition partition_id="Partition_10" name="Overview" original_uuid="698092B6-FE6C-A317-A7EF-6B935B3A6BA9" signature="622720">
+				<description />
+				<purpose />
+			</partition>
+			<partition partition_id="Partition_11" name="Public" original_uuid="6A8092B6-FE6C-A317-A7EF-6B935B3A6BA9" signature="622721">
+				<description />
+				<purpose />
+			</partition>
+			<partition partition_id="Partition_12" name="GM Only" original_uuid="6B8092B6-FE6C-A317-A7EF-6B935B3A6BA9" signature="622722">
+				<description />
+				<purpose />
+			</partition>
+		</category>
+		<category category_id="Category_5" name="Obsidian Portal Wiki" abbrev="Obsidian P" role="Topic" family_id="7" asset_name="Deity" asset_uuid="0DAE297B-91C6-5D3A-00D0-6A935D3C6BA9" original_uuid="6C8092B6-FE6C-A317-A7EF-6B935B3A6BA9" signature="623681">
+			<description />
+			<summary />
+			<partition partition_id="Partition_13" name="Overview" original_uuid="6D8092B6-FE6C-A317-A7EF-6B935B3A6BA9" signature="622724">
+				<description />
+				<purpose />
+			</partition>
+			<partition partition_id="Partition_14" name="Public" original_uuid="6E8092B6-FE6C-A317-A7EF-6B935B3A6BA9" signature="622725">
+				<description />
+				<purpose />
+			</partition>
+			<partition partition_id="Partition_15" name="GM Only" original_uuid="6F8092B6-FE6C-A317-A7EF-6B935B3A6BA9" signature="622726">
+				<description />
+				<purpose />
+			</partition>
+		</category>
+	</structure>
+</export>
