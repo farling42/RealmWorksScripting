@@ -6,6 +6,8 @@
 <xsl:variable name="obfinish">&lt;/p&gt;</xsl:variable>
 <xsl:variable name="textstart">&lt;p class=&quot;RWDefault&quot;&gt;&lt;span class=&quot;RWSnippet&quot;&gt;</xsl:variable>
 <xsl:variable name="textfinish">&lt;/span&gt;&lt;/p&gt;</xsl:variable>
+<xsl:variable name="imgstart">img src="//</xsl:variable>
+<xsl:variable name="imgafter">img src="http://</xsl:variable>
 
 <xsl:template name="replace">
 	<!-- This macro is required because Microsoft only supports XSLT 1.0, so we can't use replace() function -->
@@ -33,13 +35,19 @@
 	<xsl:call-template name="replace">
 		<xsl:with-param name="text">
 			<xsl:call-template name="replace">
-				<xsl:with-param name="text" select="text()" />
-				<xsl:with-param name="replace" select="$obfinish" />
-				<xsl:with-param name="by" select="$textfinish" />
+				<xsl:with-param name="text">
+					<xsl:call-template name="replace">
+						<xsl:with-param name="text" select="text()" />
+						<xsl:with-param name="replace" select="$obfinish" />
+						<xsl:with-param name="by" select="$textfinish" />
+					</xsl:call-template>
+				</xsl:with-param>
+				<xsl:with-param name="replace" select="$obstart" />
+				<xsl:with-param name="by" select="$textstart" />
 			</xsl:call-template>
 		</xsl:with-param>
-		<xsl:with-param name="replace" select="$obstart" />
-		<xsl:with-param name="by" select="$textstart" />
+		<xsl:with-param name="replace" select="$imgstart" />
+		<xsl:with-param name="by" select="$imgafter" />
 	</xsl:call-template>
 </xsl:template>
 
@@ -169,9 +177,7 @@
 	<!-- Convert OB blog entry into the appropriate RW topic -->
 	<topic category_id="cat_blog" xmlns="urn:lonewolfdevel.com:realm-works-export">
 		<xsl:attribute name="topic_id">blog-<xsl:number value="position()"/></xsl:attribute>
-		<xsl:attribute name="public_name"><xsl:value-of select="title"/></xsl:attribute>
-		
-		<xsl:variable name="revealed"><xsl:value-of select="published"/></xsl:variable>
+		<xsl:attribute name="public_name"><xsl:value-of select="name"/></xsl:attribute>
 		<section partition_id="p_blog_public">
 			<xsl:for-each select="content[@format='html' and text() != '']">
 				<snippet type="Multi_Line">
@@ -192,8 +198,6 @@
 		<xsl:attribute name="public_name">
 			<xsl:value-of select="title"/>
 		</xsl:attribute>
-
-		<xsl:variable name="revealed"><xsl:value-of select="published"/></xsl:variable>
 		<section partition_id="p_wiki_public">
 			<xsl:for-each select="content[@format='html' and text() != '']">
 				<snippet type="Multi_Line">
@@ -214,9 +218,6 @@
 		<xsl:attribute name="public_name">
 			<xsl:value-of select="title"/>
 		</xsl:attribute>
-		
-		<!-- no "published" element -->
-		<xsl:variable name="revealed"><xsl:value-of select="published"/></xsl:variable>
 		<section partition_id="p_person_public">
 			<xsl:for-each select="content[@format='html' and text() != '']">
 				<snippet type="Multi_Line">
@@ -237,7 +238,6 @@
 		<xsl:attribute name="public_name">
 			<xsl:value-of select="title"/>
 		</xsl:attribute>
-		<xsl:variable name="revealed"><xsl:value-of select="published"/></xsl:variable>
 		<section partition_id="p_item_public">
 			<snippet type="Multi_Line">
 				<contents>
@@ -268,22 +268,23 @@
 		</xsl:attribute>
 
 		<xsl:for-each select="post">
-			<section partition_id="p_forum_public">
-				<xsl:variable name="revealed"><xsl:value-of select="published"/></xsl:variable>
-				<snippet type="Multi_Line">
-					<contents>
-						<xsl:copy-of select="$textstart"/>
-						Posted at <xsl:value-of select="published"/> by <xsl:value-of select="author"/>
-						<xsl:copy-of select="$textfinish"/>
-					</contents>
-				</snippet>
-				<snippet type="Multi_Line">
-					<contents>
-						<xsl:copy-of select="$textstart"/>
-						<xsl:value-of select="author"/>
-						<xsl:copy-of select="$textfinish"/>
-					</contents>
-				</snippet>
+			<xsl:sort select="position()" data-type="number" order="descending"/>
+			<xsl:variable name="published"><xsl:value-of select="published"/></xsl:variable>
+			<section>
+				<xsl:attribute name="name">
+					<xsl:value-of select="author"/> on <xsl:value-of select="substring($published,1,10)"/> at <xsl:value-of select="substring($published,12,8)"/>
+				</xsl:attribute>
+				<!-- RW reports that gregorian field is missing from game_date, even though it is present!
+				<snippet type="Date_Game">
+					<xsl:attribute name="label"><xsl:value-of select="author"/></xsl:attribute>
+					<game_date>
+						<xsl:attribute name="gregorian">
+							<xsl:value-of select="substring($published,1,10)"/>
+							<xsl:text> </xsl:text>
+							<xsl:value-of select="substring($published,12,8)"/>
+						</xsl:attribute>
+					</game_date>
+				</snippet> -->
 				<xsl:for-each select="content[@format='html' and text() != '']">
 					<snippet type="Multi_Line">
 						<contents>
